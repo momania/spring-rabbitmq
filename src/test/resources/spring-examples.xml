@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:property-placeholder location="classpath:rabbitmq.properties"/>
+
+    <bean id="rabbitConnectionFactory" class="net.momania.spring.rabbitmq.connection.RabbitConnectionFactory">
+        <property name="connectionFactory">
+            <bean class="com.rabbitmq.client.ConnectionFactory">
+                <constructor-arg>
+                    <bean class="com.rabbitmq.client.ConnectionParameters">
+                        <property name="username" value="${rabbit.username}"/>
+                        <property name="password" value="${rabbit.password}"/>
+                        <property name="virtualHost" value="${rabbit.virtualHost}"/>
+                    </bean>
+                </constructor-arg>
+            </bean>
+        </property>
+        <property name="hosts" value="${rabbit.hosts}"/>
+    </bean>
+
+    <bean id="rabbitChannelFactory" class="net.momania.spring.rabbitmq.channel.RabbitChannelFactory">
+        <property name="connectionFactory" ref="rabbitConnectionFactory"/>
+    </bean>
+
+    <!-- template style sending -->
+    <bean id="rabbitTemplate" class="net.momania.spring.rabbitmq.template.ASyncRabbitTemplate">
+        <property name="channelFactory" ref="rabbitChannelFactory"/>
+        <property name="exchange" value="your_exchange"/>
+        <property name="routingKey" value="routing.to.something"/>
+        <!--optional-->
+        <property name="exchangeType" value="FANOUT"/>
+        <property name="mandatory" value="false"/>
+        <property name="immediate" value="false"/>
+    </bean>
+
+    <!--adapter style object listening-->
+    <bean id="exampleDelegate" class="net.momania.spring.rabbitmq.example.ExampleDelegate"/>
+
+    <bean id="quotingParamtersTopicAdapter" class="net.momania.spring.rabbitmq.listener.RabbitMessageListenerAdapter">
+        <property name="channelFactory" ref="rabbitChannelFactory"/>
+        <property name="delegate" ref="exampleDelegate"/>
+        <property name="exchange" value="your_echange"/>
+        <!--optional-->
+        <property name="exchangeType" value="TOPIC"/>
+        <property name="routingKey" value="routing.#"/>
+        <property name="queueName" value="explicit_queue_name"/>
+        <property name="poolsize" value="5"/>
+    </bean>
+
+
+    <!--spring style RMI/RPC-->
+
+    <!--expose/export the service-->
+    <bean id="exampleServiceImpl" class="net.momania.spring.rabbitmq.example.ExampleServiceImpl"/>
+
+    <bean id="exampleServiceExport" class="net.momania.spring.rabbitmq.remoting.RabbitInvokerServiceExporter">
+        <property name="channelFactory" ref="rabbitChannelFactory"/>
+        <property name="serviceInterface" value="net.momania.spring.rabbitmq.example.ExampleService"/>
+        <property name="service" ref="exampleServiceImpl"/>
+        <property name="exchange" value="service_exhange"/>
+        <property name="exchangeType" value="TOPIC"/>
+        <property name="routingKey" value="routing.example.service"/>
+        <property name="queueName" value="incoming_queue_name"/>
+        <property name="poolsize" value="5"/>
+    </bean>
+
+    <!--remote call the service-->
+    <bean id="exampleService" class="net.momania.spring.rabbitmq.remoting.RabbitInvokerProxyFactoryBean">
+        <property name="channelFactory" ref="rabbitChannelFactory"/>
+        <property name="serviceInterface" value="net.momania.spring.rabbitmq.example.ExampleService"/>
+        <property name="exchange" value="service_exhange"/>
+        <property name="exchangeType" value="TOPIC"/>
+        <property name="routingKey" value="routing.example.service"/>
+        <!--optional-->
+        <property name="mandatory" value="true"/>
+        <property name="poolSize" value="10"/>
+    </bean>
+
+</beans>
