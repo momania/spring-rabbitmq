@@ -22,7 +22,7 @@
             <param name="ConversionPattern" value="%d %-5p %c{1} - %m%n"/>
         </layout>
     </appender>
-    <logger name="com.efgfp">
+    <logger name="net.momania">
         <level value="DEBUG"/>
     </logger>
 
