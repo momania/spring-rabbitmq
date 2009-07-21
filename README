@@ -1,6 +1,6 @@
 Spring integration for RabbitMQ
 
-These components help using RabbitMQ in a similar way as the Spring JMS components.
+These components help using RabbitMQ in a similar way as with the Spring JMS components.
 
 This initial version contains a simple connection and channel factory (currently only with single connection).
 
