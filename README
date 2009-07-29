@@ -1,14 +1,24 @@
 Spring integration for RabbitMQ
 
+h2. What is it for?
 
 These components help using RabbitMQ with the Spring Framework.
+Initial goal was to provide an alternative for the spring jms components giving the posibility to use rabbitmq in a similar way.
 This initial version contains a simple connection and channel factory (currently only with single connection).
-
-There is a small maven dependency to the functional java library, which can be downloaded from http://functionaljava.org/
-and then installed in your local repository.
 
 Example spring configuration(s) is provided in src/main/test/spring-examples.xml
 
---------------------------------------
-javadocs are coming, but the examples should be self explaining enough,
-especially if your familiar with the JMS components of Spring. 
+h2. Descriptions
+
+|| Component || Description ||
+| RabbitTemplate | Send objects injected exchange |
+| AsyncRabbitTemplate | Same as RabbitTempate, but uses internal queue and worker so calls to the send method are non-blocking |
+| RabbitMessageListenerAdapter | Listens for incoming object messages and delegate the handling to delegate object trying to find a handleMessage method taking the specific object as a parameter |
+| RabbitInvokerServerExporter | Exports spring service interface to a direct queue or and exchange, handling springs remote invocation calls |
+| RabbitInvokerProxyFactoryBean | Proxy bean to invoke a remote exported service by intercepting method calls on proxied interface and sending a remote invocation over rabbitmq |
+
+h2 Future plans
+
+* Merge/integrate with [amqp-spring|http://github.com/yawn/amqp-spring/tree] from [yawn|http://github.com/yawn] making it more spring-amqp generic with rabbitmq implementation
+* Better threading/pooling
+* Lazy connection/channel initalization (So connection doesn't block startup when rabbitmq is not running)

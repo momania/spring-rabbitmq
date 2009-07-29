@@ -1,8 +1,6 @@
 package net.momania.spring.rabbitmq.connection;
 
 import com.rabbitmq.client.*;
-import fj.F;
-import static fj.data.List.list;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -10,10 +8,7 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.ObjectUtils;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class RabbitConnectionFactory implements DisposableBean {
@@ -75,13 +70,10 @@ public class RabbitConnectionFactory implements DisposableBean {
     }
 
     private void collectInitialKnownHosts() {
-        F<String, Address> mapping = new F<String, Address>() {
-            @Override
-            public Address f(String s) {
-                return Address.parseAddress(s);
-            }
-        };
-        Collection<Address> addresses = list(hosts).map(mapping).toCollection();
+        List<Address> addresses = new ArrayList<Address>(hosts.length);
+        for (String host : hosts) {
+            addresses.add(Address.parseAddress(host));
+        }
         knownHosts = addresses.toArray(new Address[hosts.length]);
     }
 

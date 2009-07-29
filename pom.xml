@@ -27,7 +27,6 @@
         <spring.version>2.5.6</spring.version>
         <commons-lang.version>2.4</commons-lang.version>
         <commons-io.version>1.4</commons-io.version>
-        <fj.version>2.19</fj.version>
         <log4j.version>1.2.15</log4j.version>
         <testng.version>5.7</testng.version>
     </properties>
@@ -67,13 +66,6 @@
             <version>${commons-io.version}</version>
         </dependency>
 
-        <dependency>
-            <!--http://functionaljava.org/-->
-            <groupId>org.functionaljava</groupId>
-            <artifactId>fj</artifactId>
-            <version>${fj.version}</version>
-        </dependency>
-        
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>

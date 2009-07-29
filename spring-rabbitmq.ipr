@@ -625,7 +625,6 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="E:/git_repo" vcs="Git" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -899,8 +898,14 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15.jar!/" />
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15.jar!/" />
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15.jar!/" />
       </CLASSES>
       <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-javadoc.jar!/" />
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-javadoc.jar!/" />
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-javadoc.jar!/" />
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-javadoc.jar!/" />
@@ -945,17 +950,9 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-sources.jar!/" />
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-sources.jar!/" />
         <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.functionaljava:fj:2.19">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/functionaljava/fj/2.19/fj-2.19.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/functionaljava/fj/2.19/fj-2.19-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/functionaljava/fj/2.19/fj-2.19-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.7/testng-5.7-jdk15-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.rabbitmq:amqp-client:1.5.4">
