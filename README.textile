@@ -10,15 +10,15 @@ Example spring configuration(s) is provided in src/main/test/spring-examples.xml
 
 h2. Descriptions
 
-|| Component || Description ||
+|_. Component |_. Description |
 | RabbitTemplate | Send objects injected exchange |
 | AsyncRabbitTemplate | Same as RabbitTempate, but uses internal queue and worker so calls to the send method are non-blocking |
 | RabbitMessageListenerAdapter | Listens for incoming object messages and delegate the handling to delegate object trying to find a handleMessage method taking the specific object as a parameter |
 | RabbitInvokerServerExporter | Exports spring service interface to a direct queue or and exchange, handling springs remote invocation calls |
 | RabbitInvokerProxyFactoryBean | Proxy bean to invoke a remote exported service by intercepting method calls on proxied interface and sending a remote invocation over rabbitmq |
 
-h2 Future plans
+h2. Future plans
 
-* Merge/integrate with [amqp-spring|http://github.com/yawn/amqp-spring/tree] from [yawn|http://github.com/yawn] making it more spring-amqp generic with rabbitmq implementation
+* Merge/integrate with "amqp-spring":http://github.com/yawn/amqp-spring/tree from "yawn":http://github.com/yawn making it more spring-amqp generic with rabbitmq implementation
 * Better threading/pooling
 * Lazy connection/channel initalization (So connection doesn't block startup when rabbitmq is not running)
