@@ -1,4 +1,4 @@
-package net.momania.spring.rabbitmq.connection;
+package com.rabbitmq.spring.connection;
 
 import com.rabbitmq.client.*;
 import org.apache.commons.logging.Log;

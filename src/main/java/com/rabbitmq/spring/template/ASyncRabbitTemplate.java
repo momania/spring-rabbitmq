@@ -1,4 +1,4 @@
-package net.momania.spring.rabbitmq.template;
+package com.rabbitmq.spring.template;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

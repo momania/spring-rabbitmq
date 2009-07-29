@@ -11,7 +11,7 @@ Example spring configuration(s) is provided in src/main/test/spring-examples.xml
 h2. Descriptions
 
 |_. Component |_. Description |
-| RabbitTemplate | Send objects injected exchange |
+| RabbitTemplate | Send objects to injected exchange |
 | AsyncRabbitTemplate | Same as RabbitTempate, but uses internal queue and worker so calls to the send method are non-blocking |
 | RabbitMessageListenerAdapter | Listens for incoming object messages and delegate the handling to delegate object trying to find a handleMessage method taking the specific object as a parameter |
 | RabbitInvokerServerExporter | Exports spring service interface to a direct queue or and exchange, handling springs remote invocation calls |

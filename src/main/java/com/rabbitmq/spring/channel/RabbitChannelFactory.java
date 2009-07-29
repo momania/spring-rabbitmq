@@ -1,6 +1,6 @@
-package net.momania.spring.rabbitmq.channel;
+package com.rabbitmq.spring.channel;
 
-import net.momania.spring.rabbitmq.connection.RabbitConnectionFactory;
+import com.rabbitmq.spring.connection.RabbitConnectionFactory;
 import com.rabbitmq.client.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

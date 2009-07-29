@@ -1,7 +1,7 @@
-package net.momania.spring.rabbitmq.listener;
+package com.rabbitmq.spring.listener;
 
-import net.momania.spring.rabbitmq.ExchangeType;
-import net.momania.spring.rabbitmq.channel.RabbitChannelFactory;
+import com.rabbitmq.spring.ExchangeType;
+import com.rabbitmq.spring.channel.RabbitChannelFactory;
 import com.rabbitmq.client.*;
 import org.apache.commons.lang.SerializationUtils;
 import org.apache.commons.logging.Log;

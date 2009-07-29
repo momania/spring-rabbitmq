@@ -1,4 +1,4 @@
-package net.momania.spring.rabbitmq.remoting;
+package com.rabbitmq.spring.remoting;
 
 import com.rabbitmq.client.*;
 import com.rabbitmq.client.impl.MethodArgumentReader;

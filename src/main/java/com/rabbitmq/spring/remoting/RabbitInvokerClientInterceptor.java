@@ -1,8 +1,8 @@
-package net.momania.spring.rabbitmq.remoting;
+package com.rabbitmq.spring.remoting;
 
-import net.momania.spring.rabbitmq.ExchangeType;
-import net.momania.spring.rabbitmq.UnroutableException;
-import net.momania.spring.rabbitmq.channel.RabbitChannelFactory;
+import com.rabbitmq.spring.ExchangeType;
+import com.rabbitmq.spring.UnroutableException;
+import com.rabbitmq.spring.channel.RabbitChannelFactory;
 import com.rabbitmq.client.*;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;

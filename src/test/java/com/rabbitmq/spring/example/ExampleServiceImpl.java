@@ -1,4 +1,4 @@
-package net.momania.spring.rabbitmq.example;
+package com.rabbitmq.spring.example;
 
 public class ExampleServiceImpl implements ExampleService {
     @Override

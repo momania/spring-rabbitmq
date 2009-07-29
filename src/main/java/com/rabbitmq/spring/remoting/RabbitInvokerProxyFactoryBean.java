@@ -1,4 +1,4 @@
-package net.momania.spring.rabbitmq.remoting;
+package com.rabbitmq.spring.remoting;
 
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.beans.factory.BeanClassLoaderAware;

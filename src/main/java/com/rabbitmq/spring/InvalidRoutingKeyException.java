@@ -1,4 +1,4 @@
-package net.momania.spring.rabbitmq;
+package com.rabbitmq.spring;
 
 public class InvalidRoutingKeyException extends RuntimeException {
 

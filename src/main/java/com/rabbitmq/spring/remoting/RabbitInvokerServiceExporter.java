@@ -1,8 +1,8 @@
-package net.momania.spring.rabbitmq.remoting;
+package com.rabbitmq.spring.remoting;
 
-import net.momania.spring.rabbitmq.ExchangeType;
-import net.momania.spring.rabbitmq.InvalidRoutingKeyException;
-import net.momania.spring.rabbitmq.channel.RabbitChannelFactory;
+import com.rabbitmq.spring.ExchangeType;
+import com.rabbitmq.spring.InvalidRoutingKeyException;
+import com.rabbitmq.spring.channel.RabbitChannelFactory;
 import com.rabbitmq.client.*;
 import org.apache.commons.lang.SerializationUtils;
 import org.apache.commons.logging.Log;

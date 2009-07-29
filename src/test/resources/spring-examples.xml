@@ -8,7 +8,7 @@
 
     <context:property-placeholder location="classpath:rabbitmq.properties"/>
 
-    <bean id="rabbitConnectionFactory" class="net.momania.spring.rabbitmq.connection.RabbitConnectionFactory">
+    <bean id="rabbitConnectionFactory" class="com.rabbitmq.spring.connection.RabbitConnectionFactory">
         <property name="connectionFactory">
             <bean class="com.rabbitmq.client.ConnectionFactory">
                 <constructor-arg>
@@ -23,12 +23,12 @@
         <property name="hosts" value="${rabbit.hosts}"/>
     </bean>
 
-    <bean id="rabbitChannelFactory" class="net.momania.spring.rabbitmq.channel.RabbitChannelFactory">
+    <bean id="rabbitChannelFactory" class="com.rabbitmq.spring.channel.RabbitChannelFactory">
         <property name="connectionFactory" ref="rabbitConnectionFactory"/>
     </bean>
 
     <!-- template style sending -->
-    <bean id="rabbitTemplate" class="net.momania.spring.rabbitmq.template.ASyncRabbitTemplate">
+    <bean id="rabbitTemplate" class="com.rabbitmq.spring.template.ASyncRabbitTemplate">
         <property name="channelFactory" ref="rabbitChannelFactory"/>
         <property name="exchange" value="your_exchange"/>
         <property name="routingKey" value="routing.to.something"/>
@@ -39,9 +39,9 @@
     </bean>
 
     <!--adapter style object listening-->
-    <bean id="exampleDelegate" class="net.momania.spring.rabbitmq.example.ExampleDelegate"/>
+    <bean id="exampleDelegate" class="com.rabbitmq.spring.example.ExampleDelegate"/>
 
-    <bean id="quotingParamtersTopicAdapter" class="net.momania.spring.rabbitmq.listener.RabbitMessageListenerAdapter">
+    <bean id="quotingParamtersTopicAdapter" class="com.rabbitmq.spring.listener.RabbitMessageListenerAdapter">
         <property name="channelFactory" ref="rabbitChannelFactory"/>
         <property name="delegate" ref="exampleDelegate"/>
         <property name="exchange" value="your_echange"/>
@@ -56,11 +56,11 @@
     <!--spring style RMI/RPC-->
 
     <!--expose/export the service-->
-    <bean id="exampleServiceImpl" class="net.momania.spring.rabbitmq.example.ExampleServiceImpl"/>
+    <bean id="exampleServiceImpl" class="com.rabbitmq.spring.example.ExampleServiceImpl"/>
 
-    <bean id="exampleServiceExport" class="net.momania.spring.rabbitmq.remoting.RabbitInvokerServiceExporter">
+    <bean id="exampleServiceExport" class="com.rabbitmq.spring.remoting.RabbitInvokerServiceExporter">
         <property name="channelFactory" ref="rabbitChannelFactory"/>
-        <property name="serviceInterface" value="net.momania.spring.rabbitmq.example.ExampleService"/>
+        <property name="serviceInterface" value="com.rabbitmq.spring.example.ExampleService"/>
         <property name="service" ref="exampleServiceImpl"/>
         <property name="exchange" value="service_exhange"/>
         <property name="exchangeType" value="TOPIC"/>
@@ -70,9 +70,9 @@
     </bean>
 
     <!--remote call the service-->
-    <bean id="exampleService" class="net.momania.spring.rabbitmq.remoting.RabbitInvokerProxyFactoryBean">
+    <bean id="exampleService" class="com.rabbitmq.spring.remoting.RabbitInvokerProxyFactoryBean">
         <property name="channelFactory" ref="rabbitChannelFactory"/>
-        <property name="serviceInterface" value="net.momania.spring.rabbitmq.example.ExampleService"/>
+        <property name="serviceInterface" value="com.rabbitmq.spring.example.ExampleService"/>
         <property name="exchange" value="service_exhange"/>
         <property name="exchangeType" value="TOPIC"/>
         <property name="routingKey" value="routing.example.service"/>
